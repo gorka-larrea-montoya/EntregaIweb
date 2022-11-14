@@ -5,9 +5,14 @@
 <h2> {{ingrediente.nombre}} </h2>
 {% if ingrediente %}
     <!-- una foto del ingrediente estaría bien-->
-    <p> {{ingrediente.descripcion}}
+    <p> {{ingrediente.descripcion}} </p>
     <!-- TODO poner todas las pizzas que tienen este ingrediente-->
-
+    <h3>Pizzas con estos ingredientes </h3>
+    <ul>
+    {% for piz in pizzas %}
+        <li><a href="{% url 'show_pizza' piz.id %}"> {{piz.nombre}}</a> </li>
+    {% endfor %}
+    </ul>
 {% else %}
     <p> No existe el ingrediente que estas buscando. Vuelve al inicio? </p> 
     <!--TODO añadir un enlace al landing o mirar si se puede hacer un 404 personalizado-->

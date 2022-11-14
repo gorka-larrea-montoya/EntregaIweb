@@ -5,7 +5,12 @@
 {% if masa %}
     <!-- una foto de la masa estaría bien-->
     <p> {{masa.descripcion}}
-    <!-- TODO poner todas las pizzas que tienen esta masa-->
+    <h3>Pizzas Con Esta Masa </h3>
+    <ul>
+        {% for piz in pizzas %}
+            <li><a href="{% url 'show_pizza' piz.id %}"> {{piz.nombre}}</a> </li>
+        {% endfor %}
+    </ul>
 {% else %}
     <p> No existe la masa que estas buscando. Vuelve al inicio? </p> 
     <!--TODO añadir un enlace al landing o mirar si se puede hacer un 404 personalizado-->

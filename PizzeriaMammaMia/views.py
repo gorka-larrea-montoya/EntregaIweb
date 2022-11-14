@@ -25,7 +25,8 @@ def index_pizzas(request):
 
 def show_masa(request,masa_id):
     masa = get_object_or_404(Masa,pk=masa_id)
-    context = {'masa' : masa}
+    pizzas = get_list_or_404(Pizza,masa=masa_id)
+    context = {'masa' : masa, 'pizzas' : pizzas}
     return render(request, 'masa.html', context)
 
 def index_masas(request):
@@ -35,7 +36,8 @@ def index_masas(request):
 
 def show_ingrediente(request,ingrediente_id):
     ingrediente = get_object_or_404(Ingrediente,pk=ingrediente_id)
-    context = {'ingrediente' : ingrediente}
+    pizzas = ingrediente.pizza_set.all()
+    context = {'ingrediente' : ingrediente, 'pizzas' : pizzas}
     return render(request, 'ingrediente.html', context)
 
 def index_ingredientes(request):

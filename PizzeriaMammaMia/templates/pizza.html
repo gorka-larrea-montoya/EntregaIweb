@@ -6,7 +6,7 @@
     <!-- una foto de la pizza estaría bien-->
     <p> {{pizza.descripcion}}</p>
     <h3> Masa: </h3>
-    <p>{{masa.nombre}}</p>
+    <p><a href="{% url 'show_masa' masa.id %}">{{masa.nombre}}</a></p>
     <h3> Ingredientes: </h3>
     <ul>
     {% for i in ingredientes %}
