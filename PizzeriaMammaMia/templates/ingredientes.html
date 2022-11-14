@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block titulo %} Ingredientes {% endblock titulo %}
+
+{% block contenido %}
+<h2> Lista de ingredientes </h2>
+{% if ingredientes %}
+    <ul>
+        {% for i in ingredientes %}
+        <li>
+            {{ingrediente.nombre}} <!-- Hacer la del enlace luego-->
+        </li>
+        {% endfor %}
+    </ul>    
+{% else %}
+    <p> No hemos encontrado los ingredientes que buscabas. </p>
+    <!--TODO poner un enlace al landing o un 404 personalizado-->
+{% endif %}
+
+{% endblock contenido %}
+

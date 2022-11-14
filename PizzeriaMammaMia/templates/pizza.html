@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block titulo %} {{ingrediente.nombre}} {% endblock titulo %}
+{% block contenido %} 
+<h2>{{pizza.nombre}}</h2>
+{% if pizza %}
+    <!-- una foto de la pizza estaría bien-->
+    <p> {{pizza.descripcion}}
+    <!-- TODO poner la masa y los ingredientes-->
+{% else %}
+    <p> No existe la pizza que estas buscando. Vuelve al inicio? </p> 
+    <!--TODO añadir un enlace al landing o mirar si se puede hacer un 404 personalizado-->
+{% endif %}  
+
+{% endblock contenido %}
+
+
