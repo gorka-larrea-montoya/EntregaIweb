@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block titulo %} {{masa.nombre}} {% endblock titulo %}
+{% block titulo %} Masas {% endblock titulo %}
 
 {% block contenido %}
 <h2> Lista de masas </h2>
@@ -7,7 +7,7 @@
     <ul>
         {% for i in masas %}
         <li>
-            {{masa.nombre}} <!-- Hacer la del enlace luego-->
+            {{i.nombre}} <!-- Hacer la del enlace luego-->
         </li>
         {% endfor %}
     </ul>    
@@ -15,3 +15,5 @@
     <p> No hemos encontrado las masas que buscabas. </p>
     <!--TODO poner un enlace al landing o un 404 personalizado-->
 {% endif %}
+
+{% endblock contenido %} 

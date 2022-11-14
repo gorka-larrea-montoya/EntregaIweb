@@ -7,7 +7,7 @@
     <ul>
         {% for i in ingredientes %}
         <li>
-            {{ingrediente.nombre}} <!-- Hacer la del enlace luego-->
+            <a href="{% url 'show_ingrediente' i.id%}">{{i.nombre}} </a>
         </li>
         {% endfor %}
     </ul>    

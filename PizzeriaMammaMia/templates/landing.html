@@ -1,7 +1,12 @@
 {% extends 'base.html' %}
-{% block titulo %} {{ingrediente.nombre}} {% endblock titulo %}
+{% block titulo %} {{nombre}} {% endblock titulo %}
 {% block contenido %}
 <h2> ¡Bienvenuto a la Pizzería Mamma Mia!</h2>
-
+<p>Prueba algunas de nuestras pizzas:</p>
+<ul>
+        <li>
+            <a href="{% url 'show_pizza' pizzas.id%}">{{pizzas.nombre}}</a>
+        <ul>   
+</ul>
 {% endblock contenido %}
 

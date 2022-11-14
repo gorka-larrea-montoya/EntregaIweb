@@ -1,16 +1,19 @@
 {% extends 'base.html' %}
-{% block titulo %} {{pizza.nombre}} {% endblock titulo %}
+{% block titulo %} Pizzas {% endblock titulo %}
 {% block contenido %}
 <h2> Lista de pizzas </h2>
-{% if pizzas %}
+{% if lista_pizzas %}
     <ul>
-        {% for i in pizzas %}
+       
+         {% for i in lista_pizzas %}
         <li>
-            {{pizza.nombre}} <!-- Hacer la del enlace luego-->
+            <a href="{% url 'show_pizza' i.id %}">{{i.nombre}} </a> 
         </li>
         {% endfor %}
+
     </ul>    
 {% else %}
     <p> No hemos encontrado las pizzas que buscabas. </p>
-    <!--TODO poner un enlace al landing o un 404 personalizado-->
 {% endif %}
+
+{% endblock contenido %} 

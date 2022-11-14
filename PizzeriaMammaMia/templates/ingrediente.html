@@ -2,14 +2,16 @@
 {% block titulo %} {{ingrediente.nombre}} {% endblock titulo %}
 
 {% block contenido %}
-<h2> {{ingrediente.nombre}} <h2>
+<h2> {{ingrediente.nombre}} </h2>
 {% if ingrediente %}
     <!-- una foto del ingrediente estaría bien-->
     <p> {{ingrediente.descripcion}}
     <!-- TODO poner todas las pizzas que tienen este ingrediente-->
+
 {% else %}
     <p> No existe el ingrediente que estas buscando. Vuelve al inicio? </p> 
     <!--TODO añadir un enlace al landing o mirar si se puede hacer un 404 personalizado-->
+    <!-- ahora que lo miro este ifelse es inutil si estoy usando get_or_404 -->
 {% endif %}    
 
 
