@@ -24,8 +24,8 @@ class Pizza(models.Model):
         return f"id={self.id}, nombre={self.nombre}"
     descripcion=models.CharField(max_length=1024) # o más incluso
     #Relacion many-to-many con los ingredientes
-    ingredientes = models.ManyToManyField(Ingrediente)
+    ingredientes = models.ManyToManyField(Ingrediente, related_name='pizzas')
     #Relacion one-to-many con las masas
-    masa = models.ForeignKey(Masa, on_delete=models.CASCADE)
+    masa = models.ForeignKey(Masa,related_name='pizzas', on_delete=models.CASCADE)
     precio = models.IntegerField(default=0)
 
