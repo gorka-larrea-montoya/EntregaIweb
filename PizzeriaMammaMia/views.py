@@ -5,11 +5,16 @@ from .models import *
 # Create your views here.
 
 def landing(request):
-    pizzas = get_object_or_404(Pizza,pk=1)
+    pizzas = []
+    
+    tiposdemasa = get_list_or_404(Masa.objects.order_by('id'))
+    for i in tiposdemasa:
+        pizzs = get_list_or_404(Pizza.objects.order_by('precio'),masa=i)
+        pizzas.append(pizzs[0])
+
     context = {'pizzas' : pizzas}
     return render(request,'landing.html',context)
-    #TODO hacer que devuelva la pizza mas barata por cada tipo de masa
-    #Esta magia de Bases de datos no se hacerla
+    
     
 def show_pizza(request,pizza_id):
     pizza = get_object_or_404(Pizza, pk=pizza_id)
