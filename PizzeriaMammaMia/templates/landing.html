@@ -4,9 +4,11 @@
 <h2> ¡Bienvenuto a la Pizzería Mamma Mia!</h2>
 <p>Prueba algunas de nuestras pizzas:</p>
 <ul>
+    {% for piz in pizzas %}
         <li>
-            <a href="{% url 'show_pizza' pizzas.id%}">{{pizzas.nombre}}</a>
-        <ul>   
+            <a href="{% url 'show_pizza' piz.id%}">{{piz.nombre}}</a>
+        </li>   
+    {% endfor %}
 </ul>
 {% endblock contenido %}
 
