@@ -7,7 +7,7 @@
     <ul>
         {% for i in masas %}
         <li>
-            {{i.nombre}} <!-- Hacer la del enlace luego-->
+            <a href = {% url 'show_masa' i.id %}>{{i.nombre}} </a>
         </li>
         {% endfor %}
     </ul>    

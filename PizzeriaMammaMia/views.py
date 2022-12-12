@@ -36,10 +36,10 @@ def index_masas(request):
 
 def show_ingrediente(request,ingrediente_id):
     ingrediente = get_object_or_404(Ingrediente,pk=ingrediente_id)
-    pizzas = ingrediente.pizza_set.all()
+    pizzas = get_list_or_404(Pizza,ingredientes=ingrediente_id)
     context = {'ingrediente' : ingrediente, 'pizzas' : pizzas}
     return render(request, 'ingrediente.html', context)
-
+        
 def index_ingredientes(request):
     ingredientes = get_list_or_404(Ingrediente.objects.order_by('nombre'))
     context = {'ingredientes' : ingredientes}
