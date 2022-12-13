@@ -2,22 +2,21 @@
 {% block titulo %} {{ingrediente.nombre}} {% endblock titulo %}
 {% block contenido %} 
 <h2>{{pizza.nombre}}</h2>
-{% if pizza %}
     <!-- una foto de la pizza estaría bien-->
     <p> {{pizza.descripcion}}</p>
     <h3> Masa: </h3>
-    <p><a href="{% url 'show_masa' masa.id %}">{{masa.nombre}}</a></p>
+    <p><a href="{% url 'show_masa' pizza.masa.id %}">{{pizza.masa.nombre}}</a></p>
     <h3> Ingredientes: </h3>
     <ul>
     {% for i in ingredientes %}
         <li><a href="{% url 'show_ingrediente' i.id%}"> {{i.nombre}} </a></li>
     {% endfor %}
     </ul>
-
-{% else %}
-    <p> No existe la pizza que estas buscando. Vuelve al inicio? </p> 
-    <!--TODO añadir un enlace al landing o mirar si se puede hacer un 404 personalizado-->
-{% endif %}  
+<h3>Precio </h3>
+ <p>{{pizza.precio}}€</p> 
+ <hr>
+ <h3> Pedido online <h3>
+<button>Pedir</button>
 
 {% endblock contenido %}
 

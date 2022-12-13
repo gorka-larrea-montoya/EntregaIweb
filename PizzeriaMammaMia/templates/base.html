@@ -1,14 +1,23 @@
 {% load static %}
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="es">
     <head>
         <link rel="stylesheet" href={% static 'css/styles.css' %}>
         <title>{% block titulo  %}{% endblock titulo  %}</title>
     </head>
     <body>
+        <header>
+            <nav class="topbar">
+                <ul>
+                    <li><a class="active" href={% url 'landing' %}>Pizzeria Mamma Mia</a></li>
+                    <li><a href={% url 'index_pizzas' %}>Nuestras Pizzas</a></li>
+                    <li><a href={% url 'index_masas' %}>Masas</a></li>
+                    <li><a href={% url 'index_ingredientes' %}>Ingredientes</a></li>
+                </ul>
+            </nav>
+        </header>
         <div id="content">
-            <h1><a href="{% url 'landing' %}">Pizzeria Mamma Mia</a><h1>
                 {% block contenido %}{% endblock contenido %}
         </div>
     </body>

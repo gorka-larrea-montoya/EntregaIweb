@@ -16,19 +16,13 @@ def landing(request):
     context = {'pizzas' : pizzas}
     return render(request,'landing.html',context)
     
-class PizzaDetailView(DetailView):
-    model = Pizza
-    template_name = 'pizza.html'
-    def get_context_data(self, **kwargs):
-        context = super(PizzaDetailView,self).get_context_data(**kwargs)
-        return context
-
-#def show_pizza(request,pizza_id):
-#    pizza = get_object_or_404(Pizza, pk=pizza_id)
-#    masa = pizza.masa
-#    ingredientes = pizza.ingredientes.all()
-#    context = {'pizza' : pizza , 'masa': masa, 'ingredientes' : ingredientes}
-#    return render(request,'pizza.html',context)
+    
+def show_pizza(request,pizza_id):
+    pizza = get_object_or_404(Pizza, pk=pizza_id)
+    masa = pizza.masa
+    ingredientes = pizza.ingredientes.all()
+    context = {'pizza' : pizza , 'masa': masa, 'ingredientes' : ingredientes}
+    return render(request,'pizza.html',context)
 
 def index_pizzas(request):
     pizzas = get_list_or_404(Pizza.objects.order_by('nombre'))

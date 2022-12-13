@@ -1,0 +1,57 @@
+.topbar ul {
+    font-family: Arial, Helvetica, sans-serif;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #515151;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.topbar li{
+    float: left;
+} 
+.topbar a:hover {
+    background-color: #dddddd;
+    color: black;
+  }
+.topbar a{
+    color:white;
+    display: block;
+
+    text-align: center;
+    font-size: 19px;
+
+    padding: 14px 16px;
+
+    text-decoration: none; /*porque los links vienen subrayados de base*/
+}
+.topbar a.active{
+    font-weight: bold;
+    background-color: lightcoral;
+    color:white
+}
+body {/*esto sólo para que la barra se pegue al techo bien pero luego el resto de cosas hay que meterles padding o queda raro*/
+    margin: 0; /* no sé como se sostiene esto */
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+#content {
+    padding: 20px;
+    margin-top: 20px;
+}
+button {
+    
+    border: none;
+    color:white;
+    padding:10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display:inline-block;
+    font-size:16px;
+    margin:4px 2px;
+    background-color: lightcoral;
+
+}
