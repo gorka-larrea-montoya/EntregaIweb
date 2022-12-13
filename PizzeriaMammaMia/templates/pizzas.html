@@ -2,7 +2,7 @@
 {% block titulo %} Pizzas {% endblock titulo %}
 {% block contenido %}
 <h2> Lista de pizzas </h2>
-{% if pizza_list %}
+
     <ul>
        
          {% for i in pizza_list %}
@@ -12,8 +12,6 @@
         {% endfor %}
 
     </ul>    
-{% else %}
-    <p> No hemos encontrado las pizzas que buscabas. </p>
-{% endif %}
+
 
 {% endblock contenido %} 

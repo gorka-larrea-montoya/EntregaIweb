@@ -3,17 +3,14 @@
 
 {% block contenido %}
 <h2> Lista de masas </h2>
-{% if masas %}
+
     <ul>
-        {% for i in masas %}
+        {% for i in masa_list %}
         <li>
             <a href = {% url 'show_masa' i.id %}>{{i.nombre}} </a>
         </li>
         {% endfor %}
     </ul>    
-{% else %}
-    <p> No hemos encontrado las masas que buscabas. </p>
-    <!--TODO poner un enlace al landing o un 404 personalizado-->
-{% endif %}
+
 
 {% endblock contenido %} 
