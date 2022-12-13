@@ -2,7 +2,7 @@
 {% block titulo %} {{masa.nombre}} {% endblock titulo %}
 {% block contenido %} 
 <h2>{{masa.nombre}}</h2>
-{% if masa %}
+
     <!-- una foto de la masa estaría bien-->
     <p> {{masa.descripcion}}
     <h3>Pizzas Con Esta Masa </h3>
@@ -11,9 +11,6 @@
             <li><a href="{% url 'show_pizza' piz.id %}"> {{piz.nombre}}</a> </li>
         {% endfor %}
     </ul>
-{% else %}
-    <p> No existe la masa que estas buscando. Vuelve al inicio? </p> 
-    <!--TODO añadir un enlace al landing o mirar si se puede hacer un 404 personalizado-->
-{% endif %}  
+
 
 {% endblock contenido %}

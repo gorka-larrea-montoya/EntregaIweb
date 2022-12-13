@@ -2,10 +2,10 @@
 {% block titulo %} Pizzas {% endblock titulo %}
 {% block contenido %}
 <h2> Lista de pizzas </h2>
-{% if lista_pizzas %}
+{% if pizza_list %}
     <ul>
        
-         {% for i in lista_pizzas %}
+         {% for i in pizza_list %}
         <li>
             <a href="{% url 'show_pizza' i.id %}">{{i.nombre}} </a> 
         </li>

@@ -30,16 +30,30 @@ class PizzaDetailView(DetailView):
 #    context = {'pizza' : pizza , 'masa': masa, 'ingredientes' : ingredientes}
 #    return render(request,'pizza.html',context)
 
-def index_pizzas(request):
-    pizzas = get_list_or_404(Pizza.objects.order_by('nombre'))
-    context = {'lista_pizzas' : pizzas}
-    return render(request, 'pizzas.html', context)
+#def index_pizzas(request):
+ #   pizzas = get_list_or_404(Pizza.objects.order_by('nombre'))
+  #  context = {'lista_pizzas' : pizzas}
+   # return render(request, 'pizzas.html', context)
 
-def show_masa(request,masa_id):
-    masa = get_object_or_404(Masa,pk=masa_id)
-    pizzas = get_list_or_404(Pizza,masa=masa_id)
-    context = {'masa' : masa, 'pizzas' : pizzas}
-    return render(request, 'masa.html', context)
+class PizzaListView(ListView):
+    model = Pizza
+    template_name = 'pizzas.html'
+    queryset = Pizza.objects.order_by('id')
+
+#def show_masa(request,masa_id):
+#    masa = get_object_or_404(Masa,pk=masa_id)
+#    pizzas = get_list_or_404(Pizza,masa=masa_id)
+#    context = {'masa' : masa, 'pizzas' : pizzas}
+#    return render(request, 'masa.html', context)
+
+class MasaDetailView(DetailView):
+    model = Masa
+    template_name = 'masa.html'
+    
+    def get_context_data(self, **kwargs):
+        context = super(MasaDetailView,self).get_context_data(**kwargs)
+        #TODO pizzas = get_list_or_404(Pizza,masa)
+        return context
 
 def index_masas(request):
     masas = get_list_or_404(Masa.objects.order_by('nombre'))
